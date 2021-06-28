@@ -1,7 +1,11 @@
 public class CreditPaymentService {
-    public double calculate(double суммаКредита, double годоваяПроцентнаяСтавка, double срокКредитаВМесяцах) {
-        double процентнаяСтавкаВМесяц = годоваяПроцентнаяСтавка / 100 / 12;
-        double аннуитентныйЕжемесячныйПлатеж = (суммаКредита) * ((процентнаяСтавкаВМесяц * (Math.pow(1 + процентнаяСтавкаВМесяц, срокКредитаВМесяцах)) / (Math.pow(1 + процентнаяСтавкаВМесяц, срокКредитаВМесяцах)) - 1));
-        return аннуитентныйЕжемесячныйПлатеж;
+    public double calculate(double creditAmount, double annualInterestRate, double loadTermInMonths) {
+
+        double monthlyInterestRate = annualInterestRate / 12;
+        double calculateVariable = Math.pow(1 + monthlyInterestRate, loadTermInMonths);
+        double annuityCoefficient;
+        annuityCoefficient = monthlyInterestRate * (calculateVariable / (calculateVariable - 1));
+        double AnnuityMonthlyPayment = annuityCoefficient * creditAmount;
+        return AnnuityMonthlyPayment;
     }
 }

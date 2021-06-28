@@ -1,6 +1,6 @@
 public class CreditPaymentDifferevceService {
-    public double calculate(double размерТелаКредитаНаДатуРасчетаПроцентнойЧастиПоОчередномуПлатежу, double размерГодовойПроцентнойСтавки, double количествоДнейВРассчетномПериоде, double количествоДнейВТекущемГоду, double числоОставшихсяПроцентныхПериодовМесяцев) {
-        double дифференцированныйЕжемесячныйПлатеж = ((размерТелаКредитаНаДатуРасчетаПроцентнойЧастиПоОчередномуПлатежу/числоОставшихсяПроцентныхПериодовМесяцев) + (размерТелаКредитаНаДатуРасчетаПроцентнойЧастиПоОчередномуПлатежу*размерГодовойПроцентнойСтавки*количествоДнейВРассчетномПериоде/количествоДнейВТекущемГоду/100));
-        return дифференцированныйЕжемесячныйПлатеж;
+    public double calculate(double sizeOfTheLoanBodyAsOfTheDateOfCalculatingThePercentageOfTheNextPayment, double annualInterestRate, double numberOfDaysInTheBillingPeriod, double numberOfDaysInTheCurrentYear, double numberOfRemainingInterestPeriodsMonths) {
+        double DifferenceMonthlyPayment = ((sizeOfTheLoanBodyAsOfTheDateOfCalculatingThePercentageOfTheNextPayment/numberOfRemainingInterestPeriodsMonths) + (sizeOfTheLoanBodyAsOfTheDateOfCalculatingThePercentageOfTheNextPayment*annualInterestRate*numberOfDaysInTheBillingPeriod/numberOfDaysInTheCurrentYear/100));
+        return DifferenceMonthlyPayment;
     }
 }
